@@ -95,6 +95,9 @@ The feature-importance results from the Random Forest model provide meaningful i
 Several of the serum biochemical markers (s1–s6) also ranked prominently, suggesting that underlying metabolic and lipid-related processes meaningfully shape one-year progression trajectories. These markers often reflect insulin sensitivity, hepatic function, inflammatory pathways, and lipid metabolism—physiological domains closely tied to diabetes severity. The prominence of these features reinforces the multifactorial nature of the disease and highlights the value of using multiple clinical predictors rather than relying on any single measurement.
 Blood pressure and additional demographic variables contributed to a lesser, yet still measurable extent. This pattern aligns with clinical expectations: while demographic factors provide important contextual information, metabolic indicators such as BMI and serum markers play a more direct role in shaping short-term progression. The distribution of importances also supports earlier findings that the dataset is only mildly nonlinear; although Random Forest captures interactions and threshold effects, the magnitude of nonlinear contributions is moderate rather than dominant.
 Overall, the feature-importance analysis complements the model-performance results by revealing that diabetes progression within this dataset is influenced most strongly by metabolic stress indicators, particularly BMI and specific serum biomarkers. These findings help explain why models with embedded feature selection—such as Lasso Regression—performed well, and why Random Forest achieved the best overall accuracy by capturing subtle interactions among the most predictive clinical variables. 
+
+
+
 ---
 
 ## 5. Discussion
