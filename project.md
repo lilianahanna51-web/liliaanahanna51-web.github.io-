@@ -30,19 +30,11 @@ This analysis draws directly on core concepts from AOS C204, including the biasâ
 This study draws on the widely used diabetes dataset provided through the scikit-learn machine-learning library. The dataset contains baseline clinical measurements from 442 patients, represented through ten standardized predictors that capture essential aspects of metabolic and physiological health. These variables include patient age, a sex indicator, body mass index (BMI), blood pressure, and six serum biomarkers that together reflect insulin sensitivity, lipid metabolism, and broader metabolic function. All predictors have been normalized to have a mean of zero and unit variance, a preprocessing step that ensures each feature contributes on a comparable scale and enables regularized models such as Ridge and Lasso Regression to operate effectively. The structured, clinically meaningful nature of this dataset makes it well suited for evaluating the predictive performance of different regression-based machine-learning approaches.
 
 ### 2.1 Target Variable
+The outcome of interest in this study is a continuous measure of diabetes disease progression assessed one year after the baseline clinical evaluation. This quantitative score reflects the degree to which a patientâ€™s condition has advanced over that period, with higher values indicating more severe progression. Because it is a continuous variable, it is well suited for regression-based modeling and allows for direct comparison of model accuracy using metrics such as Mean Squared Error.
 
-The target variable is a quantitative measure of **diabetes disease progression after one year**. Higher values indicate worse progression.
-
-### 2.2 Exploratory Visualization
-
-To explore the dataset, I produced a scatter plot of **BMI vs. disease progression**. BMI is known to correlate with insulin resistance and systemic inflammation, so a positive relationship is expected.
-
-The plot shows a clear upward trend:  
-- Patients with higher BMI tend to show higher disease progression scores.  
-- Variability increases in the high-BMI range, suggesting nonlinear effects.  
-
-These observations motivate testing both linear and nonlinear regression models.
-
+###2.2 Exploratory Visualization
+Before training predictive models, it is essential to examine how individual predictors relate to the progression outcome. To do this, I generated a scatter plot comparing body mass index (BMI) with the disease progression score. BMI is a well-established indicator of metabolic health and is closely linked to insulin resistance, systemic inflammation, and overall disease burden in individuals with diabetes, making it a meaningful variable to examine first.
+The visualization reveals a clear upward relationship: individuals with higher BMI values generally exhibit higher progression scores after one year, suggesting that elevated adiposity is associated with worsening disease trajectories. Notably, the spread of progression scores becomes wider among patients with high BMI, indicating increased variability that may reflect nonlinear or interaction effects between physiological predictors. These patterns justify the need to explore both linear and nonlinear modeling approaches, as they hint at underlying complexity that simpler models may not fully capture.
 ### Figure 1. BMI vs Disease Progression
 
 ![BMI vs Disease Progression](/assets/IMG/bmi_progression-2.png)
