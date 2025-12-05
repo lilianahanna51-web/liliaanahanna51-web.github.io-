@@ -31,15 +31,7 @@ This analysis draws directly on core concepts from AOS C204, including the bias�
 
 ## 2. Data Description
 
-The dataset used in this study is the **Diabetes dataset** from `sklearn.datasets.load_diabetes`. It contains clinical measurements from 442 patients, each with the following 10 standardized predictors:
-
-- **age** — patient age in years  
-- **sex** — encoded sex variable  
-- **bmi** — body mass index  
-- **bp** — blood pressure  
-- **s1–s6** — six serum biochemical markers  
-
-All features are preprocessed (standardized to mean 0 and variance 1), making them ideal for models that rely on feature scaling such as Lasso and Ridge.
+This study draws on the widely used diabetes dataset provided through the scikit-learn machine-learning library. The dataset contains baseline clinical measurements from 442 patients, represented through ten standardized predictors that capture essential aspects of metabolic and physiological health. These variables include patient age, a sex indicator, body mass index (BMI), blood pressure, and six serum biomarkers that together reflect insulin sensitivity, lipid metabolism, and broader metabolic function. All predictors have been normalized to have a mean of zero and unit variance, a preprocessing step that ensures each feature contributes on a comparable scale and enables regularized models such as Ridge and Lasso Regression to operate effectively. The structured, clinically meaningful nature of this dataset makes it well suited for evaluating the predictive performance of different regression-based machine-learning approaches.
 
 ### 2.1 Target Variable
 
