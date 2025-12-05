@@ -1,8 +1,15 @@
+<div align="center">
+
 # Predicting Diabetes Disease Progression Using Machine Learning  
-### Liliana Hanna — AOS C204 Final Project  
-### UCLA — Fall 2025  
+
+### Liliana Hanna • AOS C204 Final Project  
+
+[Home](./) • [Project Report](project.md)
+
+</div>
 
 ---
+
 
 ## 1. Introduction
 
