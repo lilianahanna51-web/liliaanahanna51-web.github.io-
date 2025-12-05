@@ -133,6 +133,15 @@ The overall approach adopted in this study offers several strengths. By comparin
 
 ## 7. References
 
-- Scikit-learn Diabetes Dataset Documentation  
-- Hastie, Tibshirani & Friedman (2009), *The Elements of Statistical Learning*  
-- AOS C204 Lecture Notes, UCLA  
+American Diabetes Association. Standards of Medical Care in Diabetes—2022. Diabetes Care, vol. 45, suppl. 1, 2022.
+
+Breiman, Leo. “Random Forests.” Machine Learning, vol. 45, 2001, pp. 5–32.
+Efron, Bradley, et al. “Least Angle Regression.” The Annals of Statistics, vol. 32, no. 2, 2004, pp. 407–499.
+
+Hastie, Trevor, et al. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2nd ed., Springer, 2009.
+
+Knowler, William C., et al. “Reduction in the Incidence of Type 2 Diabetes with Lifestyle Intervention or Metformin.” The New England Journal of Medicine, vol. 346, no. 6, 2002, pp. 393–403.
+
+“Diabetes.” World Health Organization, 10 Nov. 2021, https://www.who.int/news-room/fact-sheets/detail/diabetes. 
+
+“Diabetes Dataset Description.” Originally Published as Part of the LARS Paper by Efron et al., 2004. Dataset accessed via scikit-learn.
