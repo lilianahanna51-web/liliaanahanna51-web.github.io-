@@ -79,18 +79,15 @@ After training all models and evaluating them on the test set, the following MSE
 
 ### 4.1 Analysis of Model Performance
 
-- **Random Forest achieved the lowest MSE**, outperforming the linear models.  
-  This suggests the presence of nonlinear patterns in the predictors.
+Among the models evaluated, Random Forest Regression achieved the lowest Mean Squared Error, indicating that it captured the underlying structure of the data more effectively than the linear methods. Its superior performance suggests that the relationship between the clinical predictors and the progression outcome includes nonlinear components or interaction effects that linear models cannot fully represent.
 
-- **Lasso Regression slightly outperformed Linear Regression**, indicating that L1 regularization helped reduce noise and emphasize key predictors.
-
-- **Ridge Regression performed the worst**, demonstrating that L2 regularization did not suit the dataset as well as L1.
+Lasso Regression performed slightly better than standard Linear Regression, reflecting the benefit of L1 regularization in reducing noise and emphasizing the predictors that carry the strongest independent signal. By shrinking weaker coefficients toward zero, Lasso was able to stabilize the model and improve generalization on the test set. Ridge Regression, in contrast, exhibited the highest MSE among the models. This result suggests that the type of regularization it applies—penalizing large coefficients but retaining all predictors—was less suited to this particular dataset, where eliminating weaker features appears to be more beneficial than merely shrinking them.
 
 ### 4.2 Interpretation
 
-- The relatively small differences between Linear Regression, Lasso, and Random Forest imply the dataset is **mostly linear**, with mild nonlinear effects.  
-- Lasso’s strong performance suggests that certain predictors (e.g., BMI, blood pressure, serum markers) play more important roles, while others contribute minimally.
-- Random Forest’s slight edge indicates that interactions between features — for example, BMI × serum marker effects — may modestly improve predictive power.
+Although Random Forest achieved the best overall performance, the differences between the models were relatively modest, which implies that the dataset is largely governed by linear relationships with only mild nonlinearities. The strong performance of Lasso further supports this interpretation; by selectively reducing the influence of less informative predictors, it highlights the importance of core features such as BMI, blood pressure, and specific serum markers while suggesting that other variables contribute minimally to the progression outcome.
+Although Random Forest achieved the best overall performance, the differences between the models were relatively modest, which implies that the dataset is largely governed by linear relationships with only mild nonlinearities. The strong performance of Lasso further supports this interpretation; by selectively reducing the influence of less informative predictors, it highlights the importance of core features such as BMI, blood pressure, and specific serum markers while suggesting that other variables contribute minimally to the progression outcome.
+Random Forest’s slight advantage likely arises from its ability to model interactions and threshold effects that linear methods cannot express. For example, the combined influence of BMI with certain biochemical markers may produce subtle nonlinear patterns that the ensemble of decision trees is better equipped to detect. The improvement, however, is not dramatic, reinforcing the idea that the clinical predictors in this dataset relate to disease progression in a mostly linear but not perfectly linear manner.
 
 ---
 
