@@ -49,12 +49,16 @@ All models in this study were developed using a consistent and transparent workf
 
 ### 3.1 Linear Regression
 Linear Regression serves as the foundational baseline for this analysis. It assumes a strictly linear relationship between each predictor and the progression outcome, with all variables contributing additively and without interaction effects. Because the predictors in the Diabetes dataset are standardized, the resulting coefficients can be interpreted on a comparable scale, providing insight into the relative influence of each clinical measurement. Although simple, this model establishes a useful benchmark and helps clarify whether more complex methods offer meaningful advantages.
+
 ### 3.2 Ridge Regression
 Ridge Regression extends the linear model by adding an L2 penalty on the magnitude of the coefficients. This form of regularization discourages extreme parameter values and is particularly beneficial when predictors are correlated—a common occurrence among physiological measurements such as serum markers and metabolic indicators. By shrinking coefficients toward zero without eliminating them entirely, Ridge reduces variance and enhances model stability, especially in smaller datasets. The trade-off is a slight increase in bias, but Ridge often improves generalization when multicollinearity is present.
+
 ### 3.3 Lasso Regression
 Lasso Regression applies an L1 regularization penalty, which has the unique property of forcing some coefficients to exactly zero. This results in a more parsimonious model that effectively performs embedded feature selection. In a biomedical dataset where several clinical variables may overlap in the information they provide, Lasso helps identify which predictors carry the strongest independent signal. This sparsity can reduce noise, improve interpretability, and enhance test-set performance by preventing the model from overfitting to weaker or redundant features.
+
 ### 3.4 Random Forest Regression
 Random Forest Regression represents a fundamentally different modeling strategy. Instead of relying on linear relationships, it constructs an ensemble of decision trees—each trained on a bootstrap sample of the data—and aggregates their predictions. This structure allows Random Forests to capture nonlinear patterns, interaction effects, and threshold behaviors that linear or regularized models cannot express. The method is well suited for biomedical data, where physiological responses often do not follow strictly linear trajectories. Random Forests are also robust to outliers and feature scaling, and they provide a natural measure of feature importance, offering valuable insight into which clinical variables most strongly influence disease progression.
+
 ---
 
 ## 4. Results
