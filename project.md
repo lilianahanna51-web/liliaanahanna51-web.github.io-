@@ -48,6 +48,12 @@ The plot shows a clear upward trend:
 
 These observations motivate testing both linear and nonlinear regression models.
 
+### Figure 1. BMI vs Disease Progression
+
+![BMI vs Disease Progression](/assets/IMG/bmi_progression.png)
+
+*Figure 1: Scatter plot showing the relationship between BMI and one-year diabetes disease progression. Higher BMI is generally associated with higher progression scores, with wider variability at higher BMI values.*
+
 ---
 
 ## 3. Modeling Approach
@@ -118,6 +124,11 @@ After training all models and evaluating them on the test set, the following MSE
 | **Ridge Regression**  | 3112.97 |
 | **Lasso Regression**  | **2814.06** |
 | **Random Forest**     | **2808.84** (Best) |
+### Figure 2. Random Forest Feature Importances
+
+![Random Forest Feature Importances](/assets/IMG/rf_feature_importance.png)
+
+*Figure 2: Random Forest feature importances for the 10 baseline clinical predictors. Features with higher importance values contribute more strongly to predictions of diabetes progression; BMI is the most influential variable, followed by several serum markers and blood pressure.*
 
 ### 4.1 Analysis of Model Performance
 
