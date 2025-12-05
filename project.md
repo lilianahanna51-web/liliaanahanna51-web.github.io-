@@ -90,7 +90,7 @@ Although Random Forest achieved the best overall performance, the differences be
 
 Random Forest’s slight advantage likely arises from its ability to model interactions and threshold effects that linear methods cannot express. For example, the combined influence of BMI with certain biochemical markers may produce subtle nonlinear patterns that the ensemble of decision trees is better equipped to detect. The improvement, however, is not dramatic, reinforcing the idea that the clinical predictors in this dataset relate to disease progression in a mostly linear but not perfectly linear manner.
 
-4.3 Feature Importance
+### 4.3 Feature Importance
 The feature-importance results from the Random Forest model provide meaningful insight into which clinical variables most strongly influence diabetes disease progression. Among all predictors, body mass index (BMI) emerged as the most influential feature, which is consistent with the well-established relationship between excess adiposity, insulin resistance, and metabolic dysregulation. High BMI is strongly associated with impaired glucose uptake and chronic low-grade inflammation, both of which contribute to worsening diabetic outcomes over time.
 
 Several of the serum biochemical markers (s1–s6) also ranked prominently, suggesting that underlying metabolic and lipid-related processes meaningfully shape one-year progression trajectories. These markers often reflect insulin sensitivity, hepatic function, inflammatory pathways, and lipid metabolism—physiological domains closely tied to diabetes severity. The prominence of these features reinforces the multifactorial nature of the disease and highlights the value of using multiple clinical predictors rather than relying on any single measurement.
