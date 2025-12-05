@@ -12,7 +12,6 @@
 
 
 ## 1. Introduction
-
 Type 2 diabetes is a complex metabolic disease marked by impaired glucose regulation, progressive insulin resistance, and a wide range of long-term complications that affect the cardiovascular, renal, ocular, and nervous systems. Identifying individuals who are likely to experience accelerated disease progression is a central clinical goal, as early detection enables physicians to tailor treatment plans, initiate preventive strategies, and reduce the burden of future complications.
 
 Accurately predicting the course of diabetes remains challenging because the disease is influenced by many interdependent factors. Physiological indicators such as body mass index (BMI), blood pressure, and serum biomarkers capture different aspects of a patient’s metabolic state, while demographic variables provide additional context. No single measurement is sufficient on its own; rather, it is the combination of these predictors that offers the most meaningful insight into disease trajectory. Machine-learning methods are well suited for this task, as they can integrate diverse clinical variables, uncover underlying patterns, and generate data-driven estimates of future outcomes.
@@ -26,7 +25,6 @@ This analysis draws directly on core concepts from AOS C204, including the bias�
 ---
 
 ## 2. Data Description
-
 This study draws on the widely used diabetes dataset provided through the scikit-learn machine-learning library. The dataset contains baseline clinical measurements from 442 patients, represented through ten standardized predictors that capture essential aspects of metabolic and physiological health. These variables include patient age, a sex indicator, body mass index (BMI), blood pressure, and six serum biomarkers that together reflect insulin sensitivity, lipid metabolism, and broader metabolic function. All predictors have been normalized to have a mean of zero and unit variance, a preprocessing step that ensures each feature contributes on a comparable scale and enables regularized models such as Ridge and Lasso Regression to operate effectively. The structured, clinically meaningful nature of this dataset makes it well suited for evaluating the predictive performance of different regression-based machine-learning approaches.
 
 ### 2.1 Target Variable
@@ -44,7 +42,6 @@ The visualization reveals a clear upward relationship: individuals with higher B
 ---
 
 ## 3. Modeling Approach
-
 All models in this study were developed using a consistent and transparent workflow to ensure fair comparison. The dataset was first divided into a training set and a held-out test set, with 70% of the observations used for model fitting and the remaining 30% reserved exclusively for evaluation. A fixed random state was applied to maintain reproducibility across runs. Each model was then trained on the standardized predictors using either default or lightly tuned hyperparameters, after which predictions were generated for the test data. Model performance was assessed using Mean Squared Error (MSE), a widely used metric for continuous outcomes that penalizes large deviations and provides a straightforward means of comparing regression approaches. This standardized pipeline allows for a clear evaluation of how different modeling assumptions influence predictive accuracy.
 
 ### 3.1 Linear Regression
@@ -62,7 +59,6 @@ Random Forest Regression represents a fundamentally different modeling strategy.
 ---
 
 ## 4. Results
-
 After training all models and evaluating them on the test set, the following MSE values were obtained:
 
 | Model                | Test MSE  |
@@ -78,13 +74,11 @@ After training all models and evaluating them on the test set, the following MSE
 *Figure 2: Random Forest feature importances for the 10 baseline clinical predictors. Features with higher importance values contribute more strongly to predictions of diabetes progression; BMI is the most influential variable, followed by several serum markers and blood pressure.*
 
 ### 4.1 Analysis of Model Performance
-
 Among the models evaluated, Random Forest Regression achieved the lowest Mean Squared Error, indicating that it captured the underlying structure of the data more effectively than the linear methods. Its superior performance suggests that the relationship between the clinical predictors and the progression outcome includes nonlinear components or interaction effects that linear models cannot fully represent.
 
 Lasso Regression performed slightly better than standard Linear Regression, reflecting the benefit of L1 regularization in reducing noise and emphasizing the predictors that carry the strongest independent signal. By shrinking weaker coefficients toward zero, Lasso was able to stabilize the model and improve generalization on the test set. Ridge Regression, in contrast, exhibited the highest MSE among the models. This result suggests that the type of regularization it applies—penalizing large coefficients but retaining all predictors—was less suited to this particular dataset, where eliminating weaker features appears to be more beneficial than merely shrinking them.
 
 ### 4.2 Interpretation
-
 Although Random Forest achieved the best overall performance, the differences between the models were relatively modest, which implies that the dataset is largely governed by linear relationships with only mild nonlinearities. The strong performance of Lasso further supports this interpretation; by selectively reducing the influence of less informative predictors, it highlights the importance of core features such as BMI, blood pressure, and specific serum markers while suggesting that other variables contribute minimally to the progression outcome.
 Although Random Forest achieved the best overall performance, the differences between the models were relatively modest, which implies that the dataset is largely governed by linear relationships with only mild nonlinearities. The strong performance of Lasso further supports this interpretation; by selectively reducing the influence of less informative predictors, it highlights the importance of core features such as BMI, blood pressure, and specific serum markers while suggesting that other variables contribute minimally to the progression outcome.
 
@@ -106,33 +100,25 @@ Overall, the feature-importance analysis complements the model-performance resul
 ## 5. Discussion
 
 ### 5.1 Insights from Linear and Regularized Models
-
-5.1 Insights from Linear and Regularized Models
-
 The performance of the linear and regularized regression models provides valuable insight into the structure of the dataset. Standard Linear Regression served as a strong baseline, reinforcing the idea that the relationship between the predictors and the progression outcome is largely linear. Lasso Regression exceeded the performance of the baseline model, suggesting that selectively reducing the influence of weaker predictors improved its ability to generalize. Many of the serum biochemical markers are known to be interrelated, and the stronger shrinkage effect imposed by L1 regularization likely helped mitigate multicollinearity by focusing the model on the most informative physiological indicators. Ridge Regression, however, performed less effectively than both Linear Regression and Lasso, indicating that uniformly shrinking all coefficients was less advantageous than allowing certain predictors to be reduced more aggressively while preserving others.
 
 ### 5.2 Insights from Random Forest
-
 Random Forest Regression ultimately achieved the best predictive performance, indicating that the clinical variables in the dataset contain subtle nonlinearities and interaction effects that linear models fail to capture. The ensemble of decision trees is well suited to uncovering threshold behaviors—such as sharp changes in progression risk at certain BMI or serum marker levels—as well as interactions among physiological variables that jointly influence metabolic outcomes. The modest but consistent improvement offered by Random Forest aligns with expectations for biomedical datasets, where complex biological processes rarely adhere strictly to linear patterns.
 
 ### 5.3 Model Limitations
-
 Despite the useful insights provided by the models, several limitations should be acknowledged. The dataset contains only 442 samples, which constrains the complexity that nonlinear models can effectively learn without overfitting. Although the predictors are standardized, they are not normalized in terms of clinical meaning, which makes interpreting coefficient magnitudes or comparing variable strength across domains more difficult. Additionally, the target variable reflects only a single year of disease progression, offering a limited view of the long-term trajectory of type 2 diabetes, which often unfolds over many years or decades. These constraints do not diminish the value of the analysis but highlight the need for caution when extrapolating beyond the scope of the dataset.
 
 ### 5.4 Strengths of This Approach
-
 The overall approach adopted in this study offers several strengths. By comparing multiple modeling frameworks—ranging from simple linear methods to regularized regression and ensemble-based models—the analysis provides a comprehensive view of how different assumptions influence predictive accuracy. The consistent use of Mean Squared Error enables a clear and objective comparison across models, while the standardized modeling pipeline ensures that the results are reproducible and transparent. Furthermore, the dataset’s structure and scale make it an effective educational tool, illustrating key concepts in regression, regularization, and nonlinear modeling within a real clinical context.
 
 ---
 
 ## 6. Conclusion
-
 The overall approach adopted in this study offers several strengths. By comparing multiple modeling frameworks—ranging from simple linear methods to regularized regression and ensemble-based models—the analysis provides a comprehensive view of how different assumptions influence predictive accuracy. The consistent use of Mean Squared Error enables a clear and objective comparison across models, while the standardized modeling pipeline ensures that the results are reproducible and transparent. Furthermore, the dataset’s structure and scale make it an effective educational tool, illustrating key concepts in regression, regularization, and nonlinear modeling within a real clinical context.
 
 ---
 
 ## 7. References
-
 American Diabetes Association. Standards of Medical Care in Diabetes—2022. Diabetes Care, vol. 45, suppl. 1, 2022 
 
 Breiman, Leo. “Random Forests.” Machine Learning, vol. 45, 2001, pp. 5–32.
