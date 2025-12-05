@@ -96,47 +96,27 @@ Random Forest’s slight advantage likely arises from its ability to model inter
 
 ### 5.1 Insights from Linear and Regularized Models
 
-Linear Regression provided a strong baseline performance, reflecting the overall linear structure of the diabetes dataset. Lasso Regression performed even better, implying that **reducing less important coefficients improved generalization**. Serum markers, which often exhibit high multicollinearity, may have benefitted from the stronger shrinkage applied by Lasso.
+5.1 Insights from Linear and Regularized Models
 
-Ridge Regression performed worse than both Linear and Lasso, suggesting that dispersed shrinkage across all coefficients was less effective than the selective shrinkage provided by Lasso.
+The performance of the linear and regularized regression models provides valuable insight into the structure of the dataset. Standard Linear Regression served as a strong baseline, reinforcing the idea that the relationship between the predictors and the progression outcome is largely linear. Lasso Regression exceeded the performance of the baseline model, suggesting that selectively reducing the influence of weaker predictors improved its ability to generalize. Many of the serum biochemical markers are known to be interrelated, and the stronger shrinkage effect imposed by L1 regularization likely helped mitigate multicollinearity by focusing the model on the most informative physiological indicators. Ridge Regression, however, performed less effectively than both Linear Regression and Lasso, indicating that uniformly shrinking all coefficients was less advantageous than allowing certain predictors to be reduced more aggressively while preserving others.
 
 ### 5.2 Insights from Random Forest
 
-Random Forest was the top-performing model. This suggests:
-
-- Some degree of nonlinearity is present  
-- Predictor interactions matter  
-- Decision tree ensembles capture subtle patterns
-
-Random Forest models are often advantageous for biomedical datasets where physiological responses are rarely perfectly linear.
+Random Forest Regression ultimately achieved the best predictive performance, indicating that the clinical variables in the dataset contain subtle nonlinearities and interaction effects that linear models fail to capture. The ensemble of decision trees is well suited to uncovering threshold behaviors—such as sharp changes in progression risk at certain BMI or serum marker levels—as well as interactions among physiological variables that jointly influence metabolic outcomes. The modest but consistent improvement offered by Random Forest aligns with expectations for biomedical datasets, where complex biological processes rarely adhere strictly to linear patterns.
 
 ### 5.3 Model Limitations
 
-- The dataset has only **442 samples**, which limits the complexity and capacity of nonlinear models.  
-- Features are standardized but not normalized across medical scales, making clinical interpretation more challenging.  
-- The target variable captures only **one-year progression**, which may not fully reflect long-term metabolic changes.
+Despite the useful insights provided by the models, several limitations should be acknowledged. The dataset contains only 442 samples, which constrains the complexity that nonlinear models can effectively learn without overfitting. Although the predictors are standardized, they are not normalized in terms of clinical meaning, which makes interpreting coefficient magnitudes or comparing variable strength across domains more difficult. Additionally, the target variable reflects only a single year of disease progression, offering a limited view of the long-term trajectory of type 2 diabetes, which often unfolds over many years or decades. These constraints do not diminish the value of the analysis but highlight the need for caution when extrapolating beyond the scope of the dataset.
 
 ### 5.4 Strengths of This Approach
 
-- Multiple models were compared systematically  
-- The MSE metric provides a clear performance comparison  
-- The modeling pipeline is reproducible and transparent  
-- The dataset is well-suited for educational machine-learning applications  
+The overall approach adopted in this study offers several strengths. By comparing multiple modeling frameworks—ranging from simple linear methods to regularized regression and ensemble-based models—the analysis provides a comprehensive view of how different assumptions influence predictive accuracy. The consistent use of Mean Squared Error enables a clear and objective comparison across models, while the standardized modeling pipeline ensures that the results are reproducible and transparent. Furthermore, the dataset’s structure and scale make it an effective educational tool, illustrating key concepts in regression, regularization, and nonlinear modeling within a real clinical context.
 
 ---
 
 ## 6. Conclusion
 
-This study demonstrates that machine learning can moderately predict diabetes disease progression using only baseline clinical measurements.
-
-**Key findings:**
-
-- **Random Forest Regression was the most accurate model (MSE = 2808.84).**  
-- **Lasso Regression outperformed both Linear and Ridge Regression**, showing the value of variable selection.  
-- **Ridge Regression performed least effectively**, suggesting L2 regularization is not ideal for this dataset.  
-- The dataset appears **mostly linear**, but slight nonlinearities improve performance modestly.
-
-This project highlights how classical and ensemble-based machine-learning models can be applied to healthcare prediction tasks and underscores the value of comparing multiple approaches before drawing conclusions.
+The overall approach adopted in this study offers several strengths. By comparing multiple modeling frameworks—ranging from simple linear methods to regularized regression and ensemble-based models—the analysis provides a comprehensive view of how different assumptions influence predictive accuracy. The consistent use of Mean Squared Error enables a clear and objective comparison across models, while the standardized modeling pipeline ensures that the results are reproducible and transparent. Furthermore, the dataset’s structure and scale make it an effective educational tool, illustrating key concepts in regression, regularization, and nonlinear modeling within a real clinical context.
 
 ---
 
