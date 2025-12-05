@@ -57,7 +57,7 @@ These observations motivate testing both linear and nonlinear regression models.
 
 ### Figure 1. BMI vs Disease Progression
 
-![BMI vs Disease Progression](/assets/IMG/bmi_progression.png)
+![BMI vs Disease Progression](/assets/IMG/bmi_progression-2.png)
 
 *Figure 1: Scatter plot showing the relationship between BMI and one-year diabetes disease progression. Higher BMI is generally associated with higher progression scores, with wider variability at higher BMI values.*
 
