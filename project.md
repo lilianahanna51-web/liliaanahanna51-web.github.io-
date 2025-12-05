@@ -1,67 +1,191 @@
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+# Predicting Diabetes Disease Progression Using Machine Learning  
+### Liliana Hanna — AOS C204 Final Project  
+### UCLA — Fall 2025  
 
-## My Project
+---
 
-I applied machine learning techniques to investigate... Below is my report.
+## 1. Introduction
 
-***
+Type 2 diabetes is a chronic metabolic disorder characterized by impaired glucose regulation, progressive insulin resistance, and long-term complications affecting the cardiovascular, renal, ocular, and nervous systems. Early identification of individuals likely to experience accelerated disease progression is clinically important because it allows healthcare providers to adjust treatment strategies, initiate preventive interventions, and reduce long-term complications.
 
-## Introduction 
+Predicting disease progression, however, is challenging due to the multifactorial nature of diabetes. Physiological markers such as body mass index (BMI), blood pressure, serum biomarkers, and demographic information all provide partial information about a patient's metabolic state. Machine-learning methods provide a practical approach for combining these predictors into a unified model that can estimate future disease outcomes.
 
-Here is a summary description of the topic. Here is the problem. This is why the problem is important.
+In this project, I use the **scikit-learn Diabetes dataset**, a widely used dataset consisting of 442 patients and 10 baseline clinical variables, to build models that predict diabetes disease progression one year later. The dataset is ideal for this class project because:
 
-There is some dataset that we can use to help solve this problem. This allows a machine learning approach. This is how I will solve the problem using supervised/unsupervised/reinforcement/etc. machine learning.
+- It represents real clinical measurements.  
+- It has continuous target values suitable for regression.  
+- It provides standardized numeric variables.  
 
-We did this to solve the problem. We concluded that...
+My goal is to compare multiple supervised learning models — including **Linear Regression**, **Ridge Regression**, **Lasso Regression**, and **Random Forest Regression** — and evaluate how well each method predicts disease progression.
 
-## Data
+This analysis applies core concepts from AOS C204, including regularization, bias–variance tradeoff, train–test splitting, nonlinear modeling, and model evaluation using Mean Squared Error (MSE).
 
-Here is an overview of the dataset, how it was obtained and the preprocessing steps taken, with some plots!
+---
 
-![](assets/IMG/datapenguin.png){: width="500" }
+## 2. Data Description
 
-*Figure 1: Here is a caption for my diagram. This one shows a pengiun [1].*
+The dataset used in this study is the **Diabetes dataset** from `sklearn.datasets.load_diabetes`. It contains clinical measurements from 442 patients, each with the following 10 standardized predictors:
 
-## Modelling
+- **age** — patient age in years  
+- **sex** — encoded sex variable  
+- **bmi** — body mass index  
+- **bp** — blood pressure  
+- **s1–s6** — six serum biochemical markers  
 
-Here are some more details about the machine learning approach, and why this was deemed appropriate for the dataset. 
+All features are preprocessed (standardized to mean 0 and variance 1), making them ideal for models that rely on feature scaling such as Lasso and Ridge.
 
-<p>
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-</p>
+### 2.1 Target Variable
 
-The model might involve optimizing some quantity. You can include snippets of code if it is helpful to explain things.
+The target variable is a quantitative measure of **diabetes disease progression after one year**. Higher values indicate worse progression.
 
-```python
-from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.datasets import make_classification
-X, y = make_classification(n_features=4, random_state=0)
-clf = ExtraTreesClassifier(n_estimators=100, random_state=0)
-clf.fit(X, y)
-clf.predict([[0, 0, 0, 0]])
-```
+### 2.2 Exploratory Visualization
 
-This is how the method was developed.
+To explore the dataset, I produced a scatter plot of **BMI vs. disease progression**. BMI is known to correlate with insulin resistance and systemic inflammation, so a positive relationship is expected.
 
-## Results
+The plot shows a clear upward trend:  
+- Patients with higher BMI tend to show higher disease progression scores.  
+- Variability increases in the high-BMI range, suggesting nonlinear effects.  
 
-Figure X shows... [description of Figure X].
+These observations motivate testing both linear and nonlinear regression models.
 
-## Discussion
+---
 
-From Figure X, one can see that... [interpretation of Figure X].
+## 3. Modeling Approach
 
-## Conclusion
+The modeling process follows a consistent pipeline for all methods:
 
-Here is a brief summary. From this work, the following conclusions can be made:
-* first conclusion
-* second conclusion
+1. **Train–test split:**  
+   - 70% of samples for training  
+   - 30% for testing  
+   - `random_state = 42` for reproducibility  
 
-Here is how this work could be developed further in a future project.
+2. **Model training:**  
+   Each model is fit to the training data using its default or lightly tuned hyperparameters.
 
-## References
-[1] DALL-E 3
+3. **Prediction:**  
+   Predictions are generated for the test set.
 
-[back](./)
+4. **Evaluation:**  
+   Mean Squared Error (MSE) is used to compare model performance.
 
+### 3.1 Linear Regression
+
+Linear Regression provides a straightforward baseline. It assumes:
+
+- A linear relationship between predictors and disease progression  
+- No interactions between variables  
+- All predictors contribute additively  
+
+Because the diabetes dataset is standardized, the coefficients are easy to interpret and compare.
+
+### 3.2 Ridge Regression
+
+Ridge Regression introduces **L2 regularization**, penalizing large coefficients to reduce model variance. This helps when:
+
+- Predictors are correlated  
+- Overfitting is likely  
+- The dataset is small  
+
+Ridge often improves stability at the cost of slightly higher bias.
+
+### 3.3 Lasso Regression
+
+Lasso Regression uses **L1 regularization**, which can shrink some coefficients to exactly zero, effectively performing **feature selection**. This is useful when:
+
+- Some clinical variables are redundant  
+- A sparse model is desired  
+- Noise reduction improves generalization  
+
+### 3.4 Random Forest Regression
+
+Random Forest is an ensemble of decision trees that captures:
+
+- Nonlinear patterns  
+- Threshold effects  
+- Interactions between predictors  
+
+This model often performs best when the relationships are complex or nonlinear, which is plausible for biomedical data.
+
+---
+
+## 4. Results
+
+After training all models and evaluating them on the test set, the following MSE values were obtained:
+
+| Model                | Test MSE  |
+|----------------------|-----------|
+| **Linear Regression** | **2821.75** |
+| **Ridge Regression**  | 3112.97 |
+| **Lasso Regression**  | **2814.06** |
+| **Random Forest**     | **2808.84** (Best) |
+
+### 4.1 Analysis of Model Performance
+
+- **Random Forest achieved the lowest MSE**, outperforming the linear models.  
+  This suggests the presence of nonlinear patterns in the predictors.
+
+- **Lasso Regression slightly outperformed Linear Regression**, indicating that L1 regularization helped reduce noise and emphasize key predictors.
+
+- **Ridge Regression performed the worst**, demonstrating that L2 regularization did not suit the dataset as well as L1.
+
+### 4.2 Interpretation
+
+- The relatively small differences between Linear Regression, Lasso, and Random Forest imply the dataset is **mostly linear**, with mild nonlinear effects.  
+- Lasso’s strong performance suggests that certain predictors (e.g., BMI, blood pressure, serum markers) play more important roles, while others contribute minimally.
+- Random Forest’s slight edge indicates that interactions between features — for example, BMI × serum marker effects — may modestly improve predictive power.
+
+---
+
+## 5. Discussion
+
+### 5.1 Insights from Linear and Regularized Models
+
+Linear Regression provided a strong baseline performance, reflecting the overall linear structure of the diabetes dataset. Lasso Regression performed even better, implying that **reducing less important coefficients improved generalization**. Serum markers, which often exhibit high multicollinearity, may have benefitted from the stronger shrinkage applied by Lasso.
+
+Ridge Regression performed worse than both Linear and Lasso, suggesting that dispersed shrinkage across all coefficients was less effective than the selective shrinkage provided by Lasso.
+
+### 5.2 Insights from Random Forest
+
+Random Forest was the top-performing model. This suggests:
+
+- Some degree of nonlinearity is present  
+- Predictor interactions matter  
+- Decision tree ensembles capture subtle patterns
+
+Random Forest models are often advantageous for biomedical datasets where physiological responses are rarely perfectly linear.
+
+### 5.3 Model Limitations
+
+- The dataset has only **442 samples**, which limits the complexity and capacity of nonlinear models.  
+- Features are standardized but not normalized across medical scales, making clinical interpretation more challenging.  
+- The target variable captures only **one-year progression**, which may not fully reflect long-term metabolic changes.
+
+### 5.4 Strengths of This Approach
+
+- Multiple models were compared systematically  
+- The MSE metric provides a clear performance comparison  
+- The modeling pipeline is reproducible and transparent  
+- The dataset is well-suited for educational machine-learning applications  
+
+---
+
+## 6. Conclusion
+
+This study demonstrates that machine learning can moderately predict diabetes disease progression using only baseline clinical measurements.
+
+**Key findings:**
+
+- **Random Forest Regression was the most accurate model (MSE = 2808.84).**  
+- **Lasso Regression outperformed both Linear and Ridge Regression**, showing the value of variable selection.  
+- **Ridge Regression performed least effectively**, suggesting L2 regularization is not ideal for this dataset.  
+- The dataset appears **mostly linear**, but slight nonlinearities improve performance modestly.
+
+This project highlights how classical and ensemble-based machine-learning models can be applied to healthcare prediction tasks and underscores the value of comparing multiple approaches before drawing conclusions.
+
+---
+
+## 7. References
+
+- Scikit-learn Diabetes Dataset Documentation  
+- Hastie, Tibshirani & Friedman (2009), *The Elements of Statistical Learning*  
+- AOS C204 Lecture Notes, UCLA  
