@@ -13,19 +13,19 @@
 
 ## 1. Introduction
 
-Type 2 diabetes is a chronic metabolic disorder characterized by impaired glucose regulation, progressive insulin resistance, and long-term complications affecting the cardiovascular, renal, ocular, and nervous systems. Early identification of individuals likely to experience accelerated disease progression is clinically important because it allows healthcare providers to adjust treatment strategies, initiate preventive interventions, and reduce long-term complications.
+Here is a polished, elevated, bullet-point–free version of your introduction — it reads academically strong, cohesive, and “final-project ready”:
 
-Predicting disease progression, however, is challenging due to the multifactorial nature of diabetes. Physiological markers such as body mass index (BMI), blood pressure, serum biomarkers, and demographic information all provide partial information about a patient's metabolic state. Machine-learning methods provide a practical approach for combining these predictors into a unified model that can estimate future disease outcomes.
+---
 
-In this project, I use the **scikit-learn Diabetes dataset**, a widely used dataset consisting of 442 patients and 10 baseline clinical variables, to build models that predict diabetes disease progression one year later. The dataset is ideal for this class project because:
+Type 2 diabetes is a complex metabolic disease marked by impaired glucose regulation, progressive insulin resistance, and a wide range of long-term complications that affect the cardiovascular, renal, ocular, and nervous systems. Identifying individuals who are likely to experience accelerated disease progression is a central clinical goal, as early detection enables physicians to tailor treatment plans, initiate preventive strategies, and reduce the burden of future complications.
 
-- It represents real clinical measurements.  
-- It has continuous target values suitable for regression.  
-- It provides standardized numeric variables.  
+Accurately predicting the course of diabetes remains challenging because the disease is influenced by many interdependent factors. Physiological indicators such as body mass index (BMI), blood pressure, and serum biomarkers capture different aspects of a patient’s metabolic state, while demographic variables provide additional context. No single measurement is sufficient on its own; rather, it is the combination of these predictors that offers the most meaningful insight into disease trajectory. Machine-learning methods are well suited for this task, as they can integrate diverse clinical variables, uncover underlying patterns, and generate data-driven estimates of future outcomes.
 
-My goal is to compare multiple supervised learning models — including **Linear Regression**, **Ridge Regression**, **Lasso Regression**, and **Random Forest Regression** — and evaluate how well each method predicts disease progression.
+In this project, I analyze the scikit-learn Diabetes dataset, which includes 442 patients and ten standardized baseline clinical predictors, to build models that forecast one-year diabetes disease progression. This dataset is particularly well suited for methodological comparison because it contains real clinical measurements, offers a continuous target variable appropriate for regression analysis, and provides predictors that have already been standardized, simplifying model training and interpretation.
 
-This analysis applies core concepts from AOS C204, including regularization, bias–variance tradeoff, train–test splitting, nonlinear modeling, and model evaluation using Mean Squared Error (MSE).
+The central aim of this study is to evaluate how effectively different supervised learning approaches—Linear Regression, Ridge Regression, Lasso Regression, and Random Forest Regression—can predict future disease progression from these baseline measurements. Through this comparison, I examine both linear and nonlinear modeling behavior and assess how regularization, feature selection, and interaction effects influence predictive performance.
+
+This analysis draws directly on core concepts from AOS C204, including the bias–variance tradeoff, the role of regularization in stabilizing models, the importance of proper train–test splitting, and the use of Mean Squared Error (MSE) as a consistent evaluation metric. By applying these techniques to a real biomedical context, this project highlights both the strengths and limitations of classical and ensemble-based machine-learning models in forecasting clinical outcomes.
 
 ---
 
