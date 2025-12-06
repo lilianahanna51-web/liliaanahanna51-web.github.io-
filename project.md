@@ -4,7 +4,7 @@
 
 ### Liliana Hanna • AOS C204 Final Project  
 
-[Home](./) • [Project Report](project.md)
+[Home](./) • [Project Report](project.md) • [Preprocessed Data](data.md) • [Code](code.md)
 
 </div>
 
