@@ -71,10 +71,11 @@ To establish a baseline, I first fit a simple Linear Regression model using BMI 
 
 Together, these results show that while BMI alone provides a meaningful linear signal, more flexible modeling approaches—especially Random Forest—capture additional structure in the data and yield stronger predictive performance.
 
-**Figure: Linear Regression Line Fit**
+**Figure 2 : Linear Regression Line Fit**
 ![plot](/assets/IMG/linear_regression_bmi.png)
 
-
+*Figure 2: Figure X. Linear Regression of BMI vs. Disease Progression.
+This plot shows a linear regression line (red) fitted to the relationship between BMI and one-year disease progression, with individual patients represented as scatter points. The positive slope indicates that higher BMI values are generally associated with greater progression severity. The wide vertical spread around the line reflects substantial variability, consistent with the model’s modest R² value (0.35).
 
 
 
@@ -82,11 +83,11 @@ Together, these results show that while BMI alone provides a meaningful linear s
 ---
 
 
-### Figure 2. Random Forest Feature Importances
+### Figure 3. Random Forest Feature Importances
 
 ![Random Forest Feature Importances](/assets/IMG/rf_feature_importance.png)
 
-*Figure 2: Random Forest feature importances for the 10 baseline clinical predictors. Features with higher importance values contribute more strongly to predictions of diabetes progression; BMI is the most influential variable, followed by several serum markers and blood pressure.*
+*Figure 3: Random Forest feature importances for the 10 baseline clinical predictors. Features with higher importance values contribute more strongly to predictions of diabetes progression; BMI is the most influential variable, followed by several serum markers and blood pressure.*
 
 ### 4.1 Analysis of Model Performance
 Among the models evaluated, Random Forest Regression achieved the lowest Mean Squared Error, indicating that it captured the underlying structure of the data more effectively than the linear methods. Its superior performance suggests that the relationship between the clinical predictors and the progression outcome includes nonlinear components or interaction effects that linear models cannot fully represent.
