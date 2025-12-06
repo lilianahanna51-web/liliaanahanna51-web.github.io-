@@ -81,32 +81,7 @@ Together, these results show that while BMI alone provides a meaningful linear s
 
 ---
 
-### Error Metrics for Random Forest Regression
 
-To evaluate Random Forest performance on the test set, the following error metrics were computed:
-
-- **Mean Absolute Error (MAE):** 47.80  
-- **Mean Squared Error (MSE):** 3532.62  
-- **Root Mean Squared Error (RMSE):** 59.36  
-- **R² Score:** 0.39  
-
-These values indicate moderate predictive accuracy, with Random Forest capturing more of the variance in progression than a linear model using BMI alone.
-
----
-
-### 5-Fold Cross-Validation (Model Stability Check)
-
-To assess the stability and generalizability of the Random Forest model, I conducted 5-fold cross-validation. The RMSE values across the five folds were:
-
-
-After training all models and evaluating them on the test set, the following MSE values were obtained:
-
-| Model                | Test MSE  |
-|----------------------|-----------|
-| **Linear Regression** | **2821.75** |
-| **Ridge Regression**  | 3112.97 |
-| **Lasso Regression**  | **2814.06** |
-| **Random Forest**     | **2808.84** (Best) |
 ### Figure 2. Random Forest Feature Importances
 
 ![Random Forest Feature Importances](/assets/IMG/rf_feature_importance.png)
