@@ -29,14 +29,7 @@ The report contains:
 ---
 
 ## Preprocessed Data
-
-The data used in this project is the **Diabetes dataset** from `sklearn.datasets.load_diabetes`, which provides:
-
-- 442 patients  
-- 10 standardized predictors (age, sex, BMI, blood pressure, and six serum markers)  
-- 1 continuous target: **disease progression after one year**
-
-All predictors are standardized (mean 0, variance 1), making them directly suitable for regularized regression methods such as Lasso and Ridge.
+[Home](./) • [Project Report](project.md) • [Preprocessed Data](data.md) • [Code](code.md)
 
 ---
 
