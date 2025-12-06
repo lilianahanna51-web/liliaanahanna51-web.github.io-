@@ -1,18 +1,14 @@
 <div align="center">
 
-#  Hi, welcome to my AOS C204 final project!
+Hi, welcome to my AOS C204 final project!
 
 # Predicting Diabetes Disease Progression Using Machine Learning
 
-Liliana Hanna • 
+Liliana Hanna • December 5, 2024 
 
 AOS C204: Introduction to Machine Learning for the Physical Sciences
 
  Dr. Alexander Lozinski
-
-December 5, 2024 
-
-[Home](./) • [Project Report](project.md)
 
 </div>
 
