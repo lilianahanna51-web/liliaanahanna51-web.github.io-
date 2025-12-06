@@ -14,21 +14,7 @@ Liliana Hanna • AOS C204 Final Project
 
 <img align="right" width="320" src="/assets/IMG/bmi_progression-2.png">
 
-This project investigates how machine-learning models can be used to **predict diabetes disease progression one year after baseline clinical measurements**. I use the scikit-learn Diabetes dataset, which includes 442 patients and 10 standardized clinical predictors such as body mass index (BMI), blood pressure, and serum biomarkers.
-
-The main goals of this project are to:
-
-- Compare multiple supervised learning models  
-  – Linear Regression  
-  – Ridge Regression  
-  – Lasso Regression  
-  – Random Forest Regression  
-- Evaluate how accurately each method predicts one-year disease progression (using Mean Squared Error, MSE).  
-- Identify which clinical predictors are most important for prediction (using Random Forest feature importance).  
-
-This work connects ideas from AOS C204 — including regularization, bias–variance trade-off, train–test splitting, and nonlinear models — to a real biomedical application.
-
----
+This project examines how machine-learning models can predict one-year diabetes disease progression using baseline clinical measurements from the scikit-learn Diabetes dataset. By analyzing relationships between variables such as BMI, blood pressure, and serum biomarkers, the study compares the performance of Linear Regression, Ridge Regression, Lasso Regression, and Random Forest Regression to determine which approach provides the most accurate predictions. Through exploratory visualization, model evaluation using Mean Squared Error, and interpretation of feature importance, the project highlights how different modeling techniques capture the underlying patterns in metabolic health and disease progression.
 
 ## Report
 
