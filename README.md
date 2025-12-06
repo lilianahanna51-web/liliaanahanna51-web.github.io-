@@ -1,6 +1,6 @@
 <div align="center">
 
- Hi, welcome to my AOS C204 final project!
+#  Hi, welcome to my AOS C204 final project!
 
 # Predicting Diabetes Disease Progression Using Machine Learning
 
