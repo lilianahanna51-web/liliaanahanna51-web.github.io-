@@ -29,7 +29,8 @@ The report contains:
 ---
 
 ## Preprocessed Data
-[Home](./) • [Project Report](project.md) • [Preprocessed Data](data.md) • [Code](code.md)
+[Home](data.md) • [Project Report](project.md) • [Preprocessed Data](data.md) • [Code](code.md)
+
 
 ---
 
