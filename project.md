@@ -1,6 +1,6 @@
 <div align="center">
 
-# Predicting Diabetes Disease Progression Using Machine Learning  
+Predicting Diabetes Disease Progression Using Machine Learning  
 
 </div>
 
