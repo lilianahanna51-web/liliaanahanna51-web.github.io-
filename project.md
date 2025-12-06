@@ -1,10 +1,6 @@
 <div align="center">
 
- Predicting Diabetes Disease Progression Using Machine Learning  
-
-Liliana Hanna 
-AOS C204 Final Project  
-
+#  Predicting Diabetes Disease Progression Using Machine Learning  
 
 </div>
 
