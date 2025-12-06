@@ -59,6 +59,37 @@ Random Forest Regression represents a fundamentally different modeling strategy.
 ---
 
 ## 4. Results
+### 4.0 Additional Model Evaluation: Linear Regression Fit and Error Metrics
+
+To provide a clearer understanding of how BMI relates to diabetes progression in a purely linear way, I fit a simple Linear Regression model using BMI as the only predictor. This creates a baseline for evaluating whether more advanced models (such as Ridge, Lasso, and Random Forest) actually capture additional structure beyond a basic linear trend.
+
+**Linear Regression R² (BMI → Progression): 0.35**
+
+This means BMI alone explains about 35% of the variation in one-year disease progression.
+
+**Figure: Linear Regression Line Fit**
+![Linear Regression Plot](linear_regression_bmi.png)
+
+---
+
+### Error Metrics for Random Forest Regression
+
+To evaluate Random Forest performance on the test set, the following error metrics were computed:
+
+- **Mean Absolute Error (MAE):** 47.80  
+- **Mean Squared Error (MSE):** 3532.62  
+- **Root Mean Squared Error (RMSE):** 59.36  
+- **R² Score:** 0.39  
+
+These values indicate moderate predictive accuracy, with Random Forest capturing more of the variance in progression than a linear model using BMI alone.
+
+---
+
+### 5-Fold Cross-Validation (Model Stability Check)
+
+To assess the stability and generalizability of the Random Forest model, I conducted 5-fold cross-validation. The RMSE values across the five folds were:
+
+
 After training all models and evaluating them on the test set, the following MSE values were obtained:
 
 | Model                | Test MSE  |
