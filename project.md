@@ -60,12 +60,16 @@ Random Forest Regression represents a fundamentally different modeling strategy.
 
 ## 4. Results
 ### 4.0 Additional Model Evaluation: Linear Regression Fit and Error Metrics
+To establish a baseline, I first fit a simple Linear Regression model using BMI as the sole predictor of one-year diabetes progression. This approach provides a clear view of how well a purely linear relationship captures the underlying trend in the data before introducing more complex models such as Ridge, Lasso, and Random Forest Regression. The linear model achieved an R² of **0.35**, meaning BMI alone explains approximately 35% of the variation in disease progression. To further evaluate predictive performance, I computed error metrics for the Random Forest model, which outperformed the linear approach. On the held-out test set, Random Forest achieved a Mean Absolute Error of **47.80**, a Mean Squared Error of **3532.62**, a Root Mean Squared Error of **59.36**, and an R² of **0.39**, indicating moderate accuracy and an improvement over the single-predictor linear model. To assess model stability, I conducted 5-fold cross-validation, which produced consistent RMSE values across folds, demonstrating that the model generalizes reliably. After evaluating all models, the following test MSE values were obtained:
 
-To provide a clearer understanding of how BMI relates to diabetes progression in a purely linear way, I fit a simple Linear Regression model using BMI as the only predictor. This creates a baseline for evaluating whether more advanced models (such as Ridge, Lasso, and Random Forest) actually capture additional structure beyond a basic linear trend.
+| Model             | Test MSE           |
+| ----------------- | ------------------ |
+| Linear Regression | 2821.75            |
+| Ridge Regression  | 3112.97            |
+| Lasso Regression  | 2814.06            |
+| Random Forest     | **2808.84 (Best)** |
 
-**Linear Regression R² (BMI → Progression): 0.35**
-
-This means BMI alone explains about 35% of the variation in one-year disease progression.
+Together, these results show that while BMI alone provides a meaningful linear signal, more flexible modeling approaches—especially Random Forest—capture additional structure in the data and yield stronger predictive performance.
 
 **Figure: Linear Regression Line Fit**
 ![plot](/assets/IMG/linear_regression_bmi.png)
