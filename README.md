@@ -27,7 +27,3 @@ This project examines how machine-learning models can predict one-year diabetes 
 
 
 ---
-
-[View the code in Colab](YOUR_COLAB_LINK_HERE)
-
----
