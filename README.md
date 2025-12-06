@@ -4,7 +4,13 @@
 
 # Predicting Diabetes Disease Progression Using Machine Learning
 
-Liliana Hanna • AOS C204 Final Project  
+Liliana Hanna • 
+
+AOS C204: Introduction to Machine Learning for the Physical Sciences
+
+ Dr. Alexander Lozinski
+
+December 5, 2024 
 
 [Home](./) • [Project Report](project.md)
 
