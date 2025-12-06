@@ -68,7 +68,8 @@ To provide a clearer understanding of how BMI relates to diabetes progression in
 This means BMI alone explains about 35% of the variation in one-year disease progression.
 
 **Figure: Linear Regression Line Fit**
-![plot](IMG/linear_regression_bmi.png)
+![plot](/assets/IMG/linear_regression_bmi.png)
+
 
 
 
